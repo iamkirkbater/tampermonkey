@@ -11,6 +11,8 @@
 
 (function() {
     'use strict';
+
+    // Loads all of the comments automatically instead of having to consistently click Load More
     const loadAllComments = function() {
         document.querySelector("button.show-more-comment-tabpanel").click();
 
@@ -35,6 +37,7 @@
             })
     }
 
+    // Finds the case link comment and turns the case number into a clickable link to SFDC
     const sfdcCaseLinker = function() {
         const re = /created new external case link for case: (\d+)\./; 
         document.querySelectorAll('.activity-comment')
