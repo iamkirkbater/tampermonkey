@@ -36,13 +36,14 @@
     }
 
     const sfdcCaseLinker = function() {
+        const re = /created new external case link for case: (\d+)\./; 
         document.querySelectorAll('.activity-comment')
             .forEach((comment) => {
-                commentBody = comment.querySelector('.action-body')
-                text = commentBody.innerHTML;
-                const re = /created new external case link for case: (\d+)\./; 
-                if (text.match(re)) {
-                    newtext = text.replace(found[1], '<a href="https://access.redhat.com/support/cases/#/case/' + found[1] + '" target="_blank">' + found[1] + '</a>');
+                let commentBody = comment.querySelector('.action-body')
+                let text = commentBody.innerHTML;
+                let found = text.match(re)
+                if (found) {
+                    let newtext = text.replace(found[1], '<a href="https://access.redhat.com/support/cases/#/case/' + found[1] + '" target="_blank">' + found[1] + '</a>');
                     commentBody.innerHTML = newtext;
                 }
             })
