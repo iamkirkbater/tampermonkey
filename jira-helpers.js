@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA Helpers
 // @namespace    http://redhat.com
-// @version      0.4.0
+// @version      0.4.1
 // @description  Set of JIRA usability helpers
 // @author       Kirk Bater
 // @match        https://issues.redhat.com/*
@@ -27,10 +27,7 @@ addStyle(`.wikEdDiffDelete { background-color:#ff9c9c !important; }`);
 addStyle(`.action-body.changehistory { position: relative; }`);
 addStyle(`.jirautils-diffhtml .wikEdDiffContainer {
     width: 80%;
-    position: absolute;
-    left: 10%;
-    top: 30%;
-    margin-top: -12.5%;
+    position: relative;
 }`);
 addStyle(`.jirautils-diffhtml {
     position: absolute;
@@ -41,10 +38,15 @@ addStyle(`.jirautils-diffhtml {
     width: 100%;
     height: 100%;
     background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}`);
+addStyle(`.jirautils-diffhtml h2 {
+    margin-top: 0;
 }`);
 addStyle(`.jirautils-diffclose {
     position: absolute;
-    top: 2em;
     right: -0.5em;
     padding: 0.6em 1em;
     font-size: 1.25em;
